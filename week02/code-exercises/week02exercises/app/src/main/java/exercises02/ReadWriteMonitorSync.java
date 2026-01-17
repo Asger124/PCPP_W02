@@ -28,7 +28,7 @@ public class ReadWriteMonitorSync {
         synchronized (o) {
             readers--;
             if (readers == 0)
-                o.notify();
+                o.notifyAll();
 
         }
     }
