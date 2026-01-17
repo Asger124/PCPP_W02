@@ -35,9 +35,10 @@ public class TestMutableInteger {
     }
 }
 
+// volatile
 class MutableInteger {
     // WARNING: Not ready for usage by concurrent programs
-    volatile int value = 0;
+    private volatile int value = 0;
 
     public void set(int value) {
         this.value = value;
@@ -47,3 +48,17 @@ class MutableInteger {
         return value;
     }
 }
+// Using intrinsic locks 
+class MutableInteger {
+    private int value = 0;
+
+    public synchronized void set(int value) {
+        this.value = value;
+    }
+
+    public synchronized int get() {
+        return value;
+    }
+}
+
+
